@@ -1,13 +1,9 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url('/src/assets/image.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding-top: 40vh;
 }
 h1, h2, h3, h4, h5, h6, p, a, span {
     font-family: 'Inter', sans-serif;
@@ -22,4 +18,5 @@ li, ul, ol {
 }
 a {
     text-decoration: none;
+    user-select: none;
 }

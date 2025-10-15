@@ -5,12 +5,15 @@ import NotFound from './pages/NotFound/NotFound';
 import AddContact from './pages/AddContact/AddContact';
 import EditContact from './pages/EditContact/EditContact';
 import ContactList from './pages/ContactList/ContactList';
+import Header from './components/header/header';
 
 function App() {
 
   return (
     <>
       <Router>
+        <Header/>
+
         <Routes>
           <Route path="/" element={<h1>Home Page</h1>} />
           <Route path="/add" element={<AddContact />} />
