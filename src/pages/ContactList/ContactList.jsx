@@ -1,7 +1,17 @@
-
+import Contactitem from "../../components/contactitem/contactitem"
+import Sidebar from "../../components/sidebar/sidebar"
 
 export default function ContactList() {
     return (
-        <h1>ContactList</h1>
+        <div className="container mt-4 shadow p-4 rounded bg-body-tertiary">
+            <div className="row">
+                <div className="">
+                    <Sidebar/>
+                </div>
+                <div className="">
+                    <Contactitem/>
+                </div>
+            </div>
+        </div>
     )
 }
