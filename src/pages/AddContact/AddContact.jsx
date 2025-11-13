@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import '../AddContact/addcontact.scss'
 import {v4 as uuidv4} from 'uuid'
 
-export default function AddContact() {
+export default function AddContact({addNewContact}) {
   const initialValues = {
     id: uuidv4(),
     firstName: '',
@@ -38,9 +38,9 @@ export default function AddContact() {
     email: Yup.string()
       .email('Invalid email format')
       .required('Email is required'),
-    avatar: Yup.string()
-      .url('Invalid URL format')
-      .required('Avatar URL is required'),
+    // avatar: Yup.string()
+    //   .url('Invalid URL format')
+    //   .required('Avatar URL is required'),
     gender: Yup.string()
       .oneOf(['male', 'female'], 'Invalid gender')
       .required('Gender is required'),
@@ -50,9 +50,10 @@ export default function AddContact() {
     favorite: Yup.boolean()
   });
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log('Form submitted:', values);
-    resetForm();
+  const handleSubmit = (values) => {
+    addNewContact(values);
+    console.log('New Contact Added:', values);
+    Navigate('/')
   };
 
   return (
@@ -85,9 +86,9 @@ export default function AddContact() {
               <Field name="email" type="email" className="form-control" />
               <ErrorMessage name="email" component="div" className="text-danger" />
 
-              <label htmlFor="avatar">Avatar (URL)</label>
+              {/* <label htmlFor="avatar">Avatar (URL)</label>
               <Field name="avatar" type="url" className="form-control" />
-              <ErrorMessage name="avatar" component="div" className="text-danger" />
+              <ErrorMessage name="avatar" component="div" className="text-danger" /> */}
 
               <label htmlFor="gender">Gender</label>
               <Field as="select" name="gender" className="form-select">
